@@ -1,15 +1,16 @@
 import os
-from crypt import methods
-
 from flask import Flask, request, jsonify
 import openai
 from flask_cors import CORS
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)  # Permitir solicitudes desde cualquier origen
 
+load_dotenv()
+
 # Tenemos que configurar la API Key de forma segura
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route('/chatbot-response', methods=['POST'])
 def chatbot_response():
