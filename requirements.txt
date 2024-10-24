@@ -1,0 +1,5 @@
+pip freeze > requirements.txt
+flask
+openai
+flask-cors
+gunicorn
